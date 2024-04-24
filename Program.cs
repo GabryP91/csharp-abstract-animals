@@ -29,6 +29,17 @@ namespace csharp_abstract_animals
 {
     internal class Program
     {
+        //dichiaro funzione che preso in input interfaccia oggetto animale, richiama funzione corrispondente (vola)
+        static void FaiVolare(IVolante animale)
+        {
+            animale.Vola();
+        }
+
+        static void FaiNuotare(INuotante animale)
+        {
+            animale.Nuota();
+        }
+
         static void Main(string[] args)
         {
             
@@ -65,6 +76,9 @@ namespace csharp_abstract_animals
                         animale.Verso();
                         Console.WriteLine("mangio:");
                         animale.Mangia();
+
+                        chekInterface(animale);
+
                         break;
 
                     case "Capra":
@@ -73,6 +87,9 @@ namespace csharp_abstract_animals
                         animale.Verso();
                         Console.WriteLine("e mangio:");
                         animale.Mangia();
+
+                        chekInterface(animale);
+
                         break;
 
                     case "Orca":
@@ -81,6 +98,9 @@ namespace csharp_abstract_animals
                         animale.Verso();
                         Console.WriteLine("e mangio:");
                         animale.Mangia();
+
+                        chekInterface(animale);
+
                         break;
 
                     case "Passerotto":
@@ -89,12 +109,33 @@ namespace csharp_abstract_animals
                         animale.Verso();
                         Console.WriteLine("e mangio:");
                         animale.Mangia();
+
+                        chekInterface(animale);
+                       
                         break;
 
                 }
 
-
             }
+            
+
         }
+
+
+        static void chekInterface(Animale animale) 
+        {
+
+            // Se l'animale ha un'azione speciale, eseguila
+            if (animale is IVolante volante)
+            {
+                FaiVolare(volante);
+            }
+            else if (animale is INuotante nuotante)
+            {
+                FaiNuotare(nuotante);
+            }
+
+        }
+
     }
 }
