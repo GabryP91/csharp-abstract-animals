@@ -50,7 +50,20 @@ namespace csharp_abstract_animals
             animali.Add(new Orca());
             animali.Add(new Passerotto());
 
-            foreach(Animale animale in animali)
+            //Interfacce metodo standard
+
+            Passerotto passerotto = new Passerotto();
+            Orca orca = new Orca();
+
+            Console.WriteLine($"\nsono un {passerotto.GetType().Name} e:");
+            //richiamo funzione legata ad oggetto interfaccia
+            FaiVolare(passerotto);
+
+            Console.WriteLine($"\nsono un'{orca.GetType().Name} e:");
+            //richiamo funzione legata ad oggetto interfaccia
+            FaiNuotare(orca);
+
+            foreach (Animale animale in animali)
             {
                 /*
                  * //metodo per ritornare il nome classe
